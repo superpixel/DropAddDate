@@ -20,10 +20,10 @@ on processFiles(choosen_files)
 	set choosen_amount to number of items of choosen_files
 	-- Ask for Prefix
 	set confirm_dialog to display dialog Â
-		"Vor den Dateinamen der ausgewŠhlten" & space & choosen_amount & space & "Dateien stellen:" default answer Â
-		CurrentTimeString() & "_" default button "OK" with title "DropAddDate" giving up after 20
+		"Vor den Dateinamen der ausgewŠhlten" & space & choosen_amount & space & "Dateien anfŸgen:" default answer Â
+		CurrentTimeString() & "_" buttons {"Abbrechen", "AnfŸgen"} default button "AnfŸgen" with title "DropAddDate" giving up after 20
 	-- Rename Files if not canceled
-	if button returned of confirm_dialog is "OK" then
+	if button returned of confirm_dialog is "AnfŸgen" then
 		set name_addition to text returned of confirm_dialog
 		repeat with i from 1 to number of items in choosen_files
 			set this_item to item i of choosen_files
